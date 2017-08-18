@@ -88,8 +88,6 @@ li.divider {
   margin-left: 1rem;
 }
 
-
-
 .menu-hover-lines li:first-child a {
   margin-left: 0;
 }
@@ -134,6 +132,12 @@ div.panel {
   text-align: center;
   border: 0px;
   background: white;
+}
+
+div.footer-panel {
+  border: 2px solid;
+  padding: 10px 10px 0px 10px;
+  margin: 0 0 0 0 ;
 }
 
 .menu-hover-lines a:hover,
