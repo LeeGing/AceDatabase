@@ -3,8 +3,5 @@ public/styles
 .env
 *.log
 *.sqlite3
-<<<<<<< HEAD
 *.DS_Store
-=======
 .DS_Store
->>>>>>> 23acec0fbd11dfc6b40f0f3f6a7ba908642c6bd9
