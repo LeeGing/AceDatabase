@@ -118,6 +118,24 @@ li.divider {
   right: 0;
 }
 
+img {
+  opacity:1;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+img:hover {
+  opacity:0.70;
+}
+
+div.panel {
+  text-align: center;
+  border: 0px;
+  background: white;
+}
+
 .menu-hover-lines a:hover,
 .menu-hover-lines li.active > a {
   color: #0a0a0a;
