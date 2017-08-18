@@ -15,6 +15,21 @@
 }
 
 /* LINKS */
+h1 {
+  padding: 10px 0px 0px 10px;
+}
+
+.top-bar {
+  height: 4rem;
+}
+ul.right {
+  padding-top: 10px;
+}
+
+li.divider {
+  height: 2.75rem;
+}
+
 .menu-hover-lines {
   text-align: center;
   text-transform: uppercase;
