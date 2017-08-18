@@ -15,6 +15,19 @@
 }
 
 /* LINKS */
+i{
+  color:white;
+  height: 100px;
+  padding-left: 20px;
+}
+
+i.fa {
+  font-size:30px;
+  padding-right: 25px;
+  padding-top: 5px
+
+}
+
 h1 {
   padding: 10px 0px 0px 10px;
 }
