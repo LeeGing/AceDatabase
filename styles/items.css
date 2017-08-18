@@ -41,8 +41,14 @@ li.divider {
   font-size: 3em;
 }
 
-.menu-hover-lines li a {
+.menu-hover-lines li a.DoughnutSymbol {
+  color: rgba(10, 10, 10, 0.5);
+}
+
+.menu-hover-lines li a.DoughnutsHorchata {
   padding: 0.75rem 0;
+  padding-right: 30px;
+  padding-left: 30px;
   color: rgba(10, 10, 10, 0.5);
   position: relative;
   margin-left: 1rem;
