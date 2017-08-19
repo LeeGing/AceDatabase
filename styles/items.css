@@ -1,3 +1,4 @@
+
 .top-bar-section li:not(.has-form) a:not(.button):hover {
   background-color: white;
   color: #FF847C;
@@ -126,9 +127,13 @@ img {
   padding-bottom: 10px;
 }
 
-img:hover {
-  opacity:0.70;
+.large-4.small-6.columns:hover h5{
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #67e2d5;
 }
+
+
 
 div.panel {
   text-align: center;
