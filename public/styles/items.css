@@ -1,3 +1,21 @@
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background-color: white;
+  color: #FF847C;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background: #FF847C;
+}
+
+.top-bar-section>ul>.divider, .top-bar-section>ul>[role="separator"] {
+  border-right: solid 1px white;
+}
+
+.top-bar{
+ background-color: #FF847C;
+}
+
 .row {
   max-width: 80%;
 }
@@ -58,11 +76,15 @@ li.divider {
   color: rgba(10, 10, 10, 0.5);
 }
 
+.DoughnutSymbol{
+  color: #67e2d5;
+}
+
 .menu-hover-lines li a.DoughnutsHorchata {
   padding: 0.75rem 0;
   padding-right: 30px;
   padding-left: 30px;
-  color: rgba(10, 10, 10, 0.5);
+  color: #FF847C;
   position: relative;
   margin-left: 1rem;
 }
@@ -81,7 +103,7 @@ li.divider {
   position: absolute;
   content: '';
   transition: all 0.35s ease;
-  background-color: #1779ba;
+  background-color: #67e2d5;
   width: 0;
 }
 
@@ -93,6 +115,34 @@ li.divider {
 .menu-hover-lines a::after {
   bottom: 0;
   right: 0;
+}
+
+img {
+  opacity:1;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.large-4.small-6.columns:hover h5{
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #67e2d5;
+}
+
+
+
+div.panel {
+  text-align: center;
+  border: 0px;
+  background: white;
+}
+
+div.footer-panel {
+  border: 2px solid;
+  padding: 10px 10px 0px 10px;
+  margin: 0 0 0 0 ;
 }
 
 .menu-hover-lines a:hover,
