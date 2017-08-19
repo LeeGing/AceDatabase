@@ -3,6 +3,8 @@
 }
 
 .popup {
+  background: white;
+  padding: 10px;
   border-radius: 5px;
   border: 1px solid;
   margin-top: 40px;
@@ -11,7 +13,6 @@
 
 .popup .popup-header {
   text-align: center;
-  text-decoration: underline;
 }
 
 .popup .checkout-button {
