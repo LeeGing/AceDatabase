@@ -1,3 +1,10 @@
 .popup {
   display: none;
 }
+
+.popup {
+  background: #f6f6f6;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-top: 40px;
+}
