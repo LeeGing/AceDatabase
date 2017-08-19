@@ -157,3 +157,21 @@ div.footer-panel {
 .menu-hover-lines .active a::after {
   width: 100%;
 }
+
+div.footer-panel{
+  padding: 30px 10px 0px 10px;
+  border-top: 10px solid #67e2d5;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+
+.large-10.small-6.columns hr {
+  border: solid #FF847C;
+  border-width: 2px 0 0;
+}
+
+.large-12.columns hr {
+  border: solid #FF847C;
+  border-width: 2px 0 0;
+}
