@@ -123,6 +123,11 @@ img {
   display: block;
   margin: 0 auto;
   padding-bottom: 10px;
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -ms-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
 }
 
 .large-4.small-6.columns:hover h5{

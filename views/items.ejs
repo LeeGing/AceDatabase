@@ -18,13 +18,15 @@
 
 
 	</head>
+
 	<body>
+	
   <div id="checkout-popup" class="popup">
-    <h2>Checkout</h2>
-    <form id="login-form" method="POST" action="/login">
+    <h3 class="popup-header">Checkout</h3>
+    <ul class="item-selection"></ul>
+    <form class="checkout-form" method="POST" action="/checkout">
       <div>
-        SOMeETHING
-        <input id="login-button" type="submit" value="Login">
+        <input class="checkout-button" type="submit" value="Confirm">
       </div>
     </form>
   </div>
@@ -68,112 +70,111 @@
 					<div class="large-8 columns">
 					  <a name="doughnuts"></a>
 						<div class="row">
-							<div class="large-4 small-6 columns">
-								<img id="donut1" src="../images/doughnutpictures/avalanche-crunch.png">
+							<div id="d1" class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/avalanche-crunch.png">
 								<div class="panel">
 									<h5>Avalanche Crunch</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut2' src="../images/doughnutpictures/banana-cream.png">
+							<div id='d2' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/banana-cream.png">
 								<div class="panel">
 									<h5>Banana Cream</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut3' src="../images/doughnutpictures/chocolate-banana.png">
+							<div id='d3' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/chocolate-banana.png">
 								<div class="panel">
 									<h5>Chocolate Banana</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut4' src="../images/doughnutpictures/chocolate-crunch.png">
+							<div id='d4' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/chocolate-crunch.png">
 								<div class="panel">
 									<h5>Chocolate Crunch</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut5' src="../images/doughnutpictures/peanut-butter.png">
+							<div id='d5' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/peanut-butter.png">
 								<div class="panel">
 									<h5>Peanut Butter</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut6' src="../images/doughnutpictures/red-devil.png">
+							<div id='d6' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/red-devil.png">
 								<div class="panel">
 									<h5>Red Devil</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut7' src="../images/doughnutpictures/samoa.png">
+							<div id='d7' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/samoa.png">
 								<div class="panel">
 									<h5>Samoa</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut8' src="../images/doughnutpictures/smore.png">
+							<div id='d8' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/smore.png">
 								<div class="panel">
 									<h5>Smore</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut9' src="../images/doughnutpictures/snickers.png">
+							<div id='d9' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/snickers.png">
 								<div class="panel">
 									<h5>Snickers</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut10' src="../images/doughnutpictures/strawberry.png">
+							<div id='d10' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/strawberry.png">
 								<div class="panel">
 									<h5>Strawberry</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut11' src="../images/doughnutpictures/strawberry-ice.png">
+							<div id='d11' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/strawberry-ice.png">
 								<div class="panel">
 									<h5>Strawberry Ice</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-							<div class="large-4 small-6 columns">
-								<img id='donut12' src="../images/doughnutpictures/twix-chocolate.png">
+							<div id='d12' class="large-4 small-6 columns">
+								<img src="../images/doughnutpictures/twix-chocolate.png">
 								<div class="panel">
 									<h5>Twix Chocolate</h5>
 										<h6 class="subheader">$9</h6>
 								</div>
 							</div>
-						</div>
-						<div class="large-4 small-6 columns">
-            <a name="horchata"></a>
-							<img src="../images/drinks/coffee1.png">
-								<div class="panel">
-									<h5>Horchata</h5>
-									<h6 class="subheader">$12</h6>
-								</div>
-						</div>
-						<div class="large-4 small-6 columns">
-							<img src="../images/drinks/coffee2.png">
-								<div class="panel">
-									<h5>Strawchata</h5>
-									<h6 class="subheader">$12</h6>
-								</div>
-						</div>
-						<div class="large-4 small-6 columns">
-							<img src="../images/drinks/coffee3.png">
-								<div class="panel">
-									<h5>Coconut Horchata</h5>
-									<h6 class="subheader">$12</h6>
-								</div>
+							<div id="d13" class="large-4 small-6 columns">
+								<img src="../images/drinks/coffee1.png">
+									<div class="panel">
+										<h5>Horchata</h5>
+										<h6 class="subheader">$12</h6>
+									</div>
+							</div>
+							<div id="d14" class="large-4 small-6 columns">
+								<img src="../images/drinks/coffee2.png">
+									<div class="panel">
+										<h5>Strawchata</h5>
+										<h6 class="subheader">$12</h6>
+									</div>
+							</div>
+							<div id="d15" class="large-4 small-6 columns">
+								<img src="../images/drinks/coffee3.png">
+									<div class="panel">
+										<h5>Coconut Horchata</h5>
+										<h6 class="subheader">$12</h6>
+									</div>
+							</div>
 						</div>
 						<div class="row">
 							<div class="large-12 columns">

@@ -3,8 +3,18 @@
 }
 
 .popup {
-  background: #f6f6f6;
+  background: white;
+  padding: 10px;
   border-radius: 5px;
   border: 1px solid;
   margin-top: 40px;
+  width: 300px;
+}
+
+.popup .popup-header {
+  text-align: center;
+}
+
+.popup .checkout-button {
+  float: right;
 }
