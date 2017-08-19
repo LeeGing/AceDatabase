@@ -1,4 +1,4 @@
-$(() => {
+$(document).ready(function () {
   // $.ajax({
   //   method: "GET",
   //   url: "/api/users"
@@ -8,6 +8,19 @@ $(() => {
   //   }
   // });;
 
+  // Popup driver
+  $('.popup').popup({
+    type: 'tooltip',
+    vertical: 'bottomedge',
+    tooltipanchor: $('#cart')
+  });
+
+  $('#cart').on('click', function() {
+    console.log("cart");
+    // debugger
+    $('.popup').popup('show');
+  });
+
   // Cart will be populated with....donut#
   let cart = [];
 
@@ -15,7 +28,7 @@ $(() => {
   // IDs will be (donut1,donut2,donut3,...)
   // The images will have IDs for jQuery selection
   // when you click on an image, the food item will be added to a cart??
-  for (const i = 1; i <= 12; i++) {
+  for (i = 1; i <= 12; i++) {
     $(`#donut${i}`).on('click', function () {
       // cart is populated with id number
       // Might be better to append element to popup div with relevant content
