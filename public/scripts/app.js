@@ -28,6 +28,7 @@ $(document).ready(function () {
   }
 
   let itemList = $('.item-selection');
+  let checkout = $('.checkout-button');
 
   // Cart click handler
   $('#cart').on('click', function() {
@@ -43,8 +44,6 @@ $(document).ready(function () {
     itemList.append(`Total: $<span>${total}</span>`);
   });
 
-  let cart = [];
-
   // Apply click handler to every image, add to cart on click
   for (let i = 1; i <= 15; i++) {
     $(`#d${i}`).on('click', function () {
@@ -52,6 +51,13 @@ $(document).ready(function () {
       items[i].amount++;
     });
   }
+
+  checkout.on('click', function () {
+    $.post('/checkout', items)
+      .done(() => {
+        console.log("posted items");
+      });
+  });
 
 
   // TODO figure out what this cart is

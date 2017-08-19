@@ -28,13 +28,6 @@ app.use(knexLogger(knex));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use("/styles", sass({
-//   src: __dirname + "/styles",
-//   dest: __dirname + "/public/styles",
-//   debug: true,
-//   outputStyle: 'expanded'
-// }));
-
 app.use(express.static("public"));
 app.use('/images', express.static("images"));
 // Mount all resource routes
@@ -47,6 +40,16 @@ app.get("/", (req, res) => {
 
 app.get("/admin", (req, res) => {
   res.render("admin");
+});
+
+app.post("/checkout", (req,res) => {
+  const items = req.body;
+  for (const item in items) {
+    if (items[item].amount > 0) {
+      console.log(items[item]);
+    }
+  }
+  res.status(200).send();
 });
 
 app.listen(PORT, () => {
