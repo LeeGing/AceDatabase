@@ -1,10 +1,10 @@
 .top-bar-section li:not(.has-form) a:not(.button):hover {
   background-color: white;
-  color: #FF847C;
+  color: gray;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-    background: #FF847C;
+    background: black;
 }
 
 .top-bar-section>ul>.divider, .top-bar-section>ul>[role="separator"] {
@@ -12,7 +12,8 @@
 }
 
 .top-bar{
- background-color: #FF847C;
+  background-color: black;
+  height: 4rem;
 }
 
 .row {
@@ -21,7 +22,7 @@
 
 /* LINKS */
 i{
-  color:white;
+  color:black;
   height: 100px;
   padding-left: 20px;
 }
@@ -36,16 +37,16 @@ h1 {
   padding: 10px 0px 0px 10px;
 }
 
-.top-bar {
-  height: 4rem;
-}
-
 ul.right {
   padding-top: 10px;
 }
 
 li.divider {
   height: 2.75rem;
+}
+
+.adminlink {
+  padding:20px;
 }
 
 .admintable {
