@@ -3,9 +3,17 @@
 }
 
 .popup {
-  background: #f6f6f6;
   border-radius: 5px;
   border: 1px solid;
   margin-top: 40px;
   width: 300px;
+}
+
+.popup .popup-header {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.popup .checkout-button {
+  float: right;
 }
