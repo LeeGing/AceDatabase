@@ -55,7 +55,15 @@
 							<th>ITEMS</th>
 							<th>PRICE</th>
 						</tr>
-						</table>
+						<% orderResults.forEach((order) => { %>
+						<tr>
+							<td><%= order.time %></td>
+							<td><%= order.username %></td>
+							<td><%= order.name %> x <%= order.quantity %></td>
+							<td><%= order.quantity * order.price %></td>
+						</tr>
+						<% }); %>
+					</table>
 				<footer class="row">
 					<div class="large-12 columns">
 						<hr>
