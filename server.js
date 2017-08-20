@@ -13,6 +13,7 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
+const moment      = require('moment');
 
 // Seperated Routes for each Resource
 // const usersRoutes = require("./routes/users");
@@ -28,17 +29,13 @@ app.use(knexLogger(knex));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use("/styles", sass({
-//   src: __dirname + "/styles",
-//   dest: __dirname + "/public/styles",
-//   debug: true,
-//   outputStyle: 'expanded'
-// }));
-
 app.use(express.static("public"));
 app.use('/images', express.static("images"));
 // Mount all resource routes
 // app.use("/api/users", usersRoutes(knex));
+
+// Hardcoding 'logged-in' user
+const user = 'User 1';
 
 // Home page
 app.get("/", (req, res) => {
@@ -46,7 +43,46 @@ app.get("/", (req, res) => {
 });
 
 app.get("/admin", (req, res) => {
-  res.render("admin");
+  let orderResults = [];
+  knex('users')
+    .join('orders', 'users.id', '=', 'orders.user_id')
+    .join('selections', 'orders.id', '=', 'selections.orders_id')
+    .join('items', 'selections.items_id', '=', 'items.id')
+    .select('users.name AS username', 'orders.time', 'selections.quantity', 'items.price', 'items.name')
+    .then((results) => {
+      results.forEach((result) => {
+        orderResults.push(result);
+        // console.log(result);
+      });
+      // console.log(orderResults);
+      res.render("admin", {orderResults: orderResults});
+    });
+});
+
+app.post("/checkout", (req,res) => {
+  const items = req.body;
+  // Search DB for userID
+  var userID;
+  knex.select('id').from('users').where({name:user}).asCallback((error, results) => {
+    results.forEach((result) => {
+      userID = result.id;
+    });
+    knex('orders').insert({user_id: userID}).returning('id').then((id) => {
+      const orderID = id[0];
+      for (const item in items) {
+        if (items[item].amount > 0) {
+          knex.select('id').from('items').where({name:items[item].name}).then((results) => {
+            results.forEach((result) => {
+              knex('selections').insert({orders_id: orderID, items_id: result.id, quantity: items[item].amount}).then((res) => {
+                console.log(res);
+              });
+            });
+          });
+        }
+      }
+    });
+  });
+  res.status(200).send();
 });
 
 app.listen(PORT, () => {

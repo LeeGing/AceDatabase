@@ -6,13 +6,15 @@
 		<meta charset="utf-8">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>Foundation 5</title>
+			<title>Dirty Dozen</title>
 
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
 			<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
 			<link rel="stylesheet" type="text/css" href="/styles/admin.css">
 			<link rel="stylesheet" href="../styles/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
 
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -25,18 +27,16 @@
 						<nav class="top-bar" data-topbar>
 							<ul class="title-area">
 								<li class="name">
-									<h1><a href="/">Doughnuts & Horchata</a></h1>
+									<h1><a href="/">Dirty Dozen</a></h1>
 								</li>
 								<li class="toggle-topbar menu-icon">
 									<a href="#"><span>menu</span></a>
 								</li>
 							</ul>
 							<section class="top-bar-section">
-								<ul class="right">	
+								<ul class="right">
 									<li class="divider"></li>
 									<li><a href="#">User 1</a></li>
-									<li class="divider"></li>
-									<li><a href="#">User 2</a></li>
 									<li class="divider"></li>
 									<li><a href="/admin" class='adminlink'>Admin</a></li>
 									<li class="divider"></li>
@@ -51,17 +51,25 @@
 					<table style='width:100%'>
 						<tr>
 							<th>DATE</th>
-							<th>ORDER ID</th>
+							<th>USER NAME</th>
 							<th>ITEMS</th>
 							<th>PRICE</th>
 						</tr>
-						</table>
+						<% orderResults.forEach((order) => { %>
+						<tr>
+							<td><%= order.time %></td>
+							<td><%= order.username %></td>
+							<td><%= order.name %> x <%= order.quantity %></td>
+							<td><%= order.quantity * order.price %></td>
+						</tr>
+						<% }); %>
+					</table>
 				<footer class="row">
 					<div class="large-12 columns">
 						<hr>
 							<div class="row">
 								<div class="large-6 columns">
-									<p>© Copyright no one at all. Go to town.</p>
+									<p>© Copyright ACE Database 2017</p>
 								</div>
 							</div>
 					</div>
