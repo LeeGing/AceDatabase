@@ -1,8 +1,43 @@
-
 body {
   font-family: 'Raleway', sans-serif !important;
 }
 
+#heart {
+    display: inline-block; /* added */
+    overflow: hidden; /* added */
+    height: 200px;
+}
+
+
+#heart:active {
+    opacity: 1; /* added */
+    top: 25%; /* added */
+    z-index: 500;
+    color: pink;
+    font-size: 400%;
+}
+
+
+/* added */
+#heart:hover span {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+/* added */
+#heart {
+    display: block;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: inherit;
+}
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
   background-color: white;
@@ -37,8 +72,8 @@ body {
 }
 
 /* LINKS */
-i{
-  color:white;
+#cart{
+  color: white;
   height: 100px;
   padding-left: 20px;
 }
@@ -127,11 +162,11 @@ img {
   display: block;
   margin: 0 auto;
   padding-bottom: 10px;
-  -webkit-transition: opacity .5s ease-in-out;
-  -moz-transition: opacity .5s ease-in-out;
-  -ms-transition: opacity .5s ease-in-out;
-  -o-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -ms-transition: opacity .2s ease-in-out;
+  -o-transition: opacity .2s ease-in-out;
+  transition: opacity .2s ease-in-out;
 }
 
 .large-4.small-6.columns:hover h5{
@@ -139,6 +174,11 @@ img {
   text-decoration-style: wavy;
   text-decoration-color: #67e2d5;
 }
+
+.large-4.small-6.columns:hover img{
+  opacity: .5;
+}
+
 
 .large-4.small-6.columns h5, h6{
   font-family: 'Raleway', sans-serif;
