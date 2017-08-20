@@ -44,6 +44,14 @@ $(document).ready(function () {
     itemList.append(`Total: $<span>${total}</span>`);
   });
 
+  // Empty button click handler
+  $('.empty-button').on('click', function () {
+    itemList.empty();
+    for (let item in items) {
+      items[item].amount = 0;
+    }
+  });
+
   // Apply click handler to every image, add to cart on click
   for (let i = 1; i <= 15; i++) {
     $(`#d${i}`).on('click', function () {
@@ -55,7 +63,12 @@ $(document).ready(function () {
   checkout.on('click', function () {
     $.post('/checkout', items)
       .done(() => {
-        console.log("posted items");
+        $('.popup').popup('hide');
+        itemList.empty();
+        for (let item in items) {
+          items[item].amount = 0;
+        }
+        alert("Thanks for placing your order");
       });
   });
 

@@ -25,3 +25,7 @@
 .popup .checkout-button {
   float: right;
 }
+
+.popup .empty-button {
+  float: left;
+}

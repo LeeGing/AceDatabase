@@ -15,6 +15,16 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const moment      = require('moment');
 
+// Twilio info
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioPhone = process.env.TWILIO_PHONE_NUMBER;
+const recipient = process.env.NUMBER_TO_CALL;
+const restaurantNumber = process.env.RESTAURANT_NUMBER;
+
+var twilio = require('twilio');
+var client = new twilio(accountSid, authToken);
+
 // Seperated Routes for each Resource
 // const usersRoutes = require("./routes/users");
 
@@ -48,7 +58,8 @@ app.get("/admin", (req, res) => {
     .join('orders', 'users.id', '=', 'orders.user_id')
     .join('selections', 'orders.id', '=', 'selections.orders_id')
     .join('items', 'selections.items_id', '=', 'items.id')
-    .select('users.name AS username', 'orders.time', 'selections.quantity', 'items.price', 'items.name')
+    .select('orders.id', 'orders.time', 'selections.quantity', 'items.price', 'items.name')
+    .orderBy('orders.time', 'desc')
     .then((results) => {
       results.forEach((result) => {
         orderResults.push(result);
@@ -69,20 +80,39 @@ app.post("/checkout", (req,res) => {
     });
     knex('orders').insert({user_id: userID}).returning('id').then((id) => {
       const orderID = id[0];
+      client.messages.create({
+        body: `Your order has been received! Order ${orderID} will be ready in 15 minutes`,
+        to: recipient,
+        from: twilioPhone
+      })
+      .then((message) => console.log(message.sid));
+      let smsItems = [];
       for (const item in items) {
         if (items[item].amount > 0) {
+          smsItems.push(items[item]);
           knex.select('id').from('items').where({name:items[item].name}).then((results) => {
             results.forEach((result) => {
               knex('selections').insert({orders_id: orderID, items_id: result.id, quantity: items[item].amount}).then((res) => {
-                console.log(res);
+                // Call function passing orderID, send text to 'restaurant'
               });
             });
           });
         }
       }
+      const smsItemsSend = smsItems.map((item) => {
+        return ` ${item.name} x ${item.amount}`;
+      });
+      smsItemsSend.unshift(`Order ID: ${orderID}`);
+      client.messages.create({
+        body: smsItemsSend.toString(),
+        to: restaurantNumber,
+        from: twilioPhone
+      })
+      .then((message) => console.log(message.sid));
     });
   });
   res.status(200).send();
+  // res.redirect('/items');
 });
 
 app.listen(PORT, () => {
