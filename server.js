@@ -25,12 +25,6 @@ const restaurantNumber = process.env.RESTAURANT_NUMBER;
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
 
-// Seperated Routes for each Resource
-// const usersRoutes = require("./routes/users");
-
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
 // Log knex SQL queries to STDOUT as well
@@ -41,8 +35,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.use('/images', express.static("images"));
-// Mount all resource routes
-// app.use("/api/users", usersRoutes(knex));
 
 // Hardcoding 'logged-in' user
 const user = 'User 1';
@@ -52,6 +44,8 @@ app.get("/", (req, res) => {
   res.render("items");
 });
 
+// Render admin page
+// Connect every table in DB and pull down relevant data
 app.get("/admin", (req, res) => {
   let orderResults = [];
   knex('users')
@@ -63,13 +57,12 @@ app.get("/admin", (req, res) => {
     .then((results) => {
       results.forEach((result) => {
         orderResults.push(result);
-        // console.log(result);
       });
-      // console.log(orderResults);
       res.render("admin", {orderResults: orderResults});
     });
 });
 
+// Checkout handler
 app.post("/checkout", (req,res) => {
   const items = req.body;
   // Search DB for userID
@@ -78,27 +71,31 @@ app.post("/checkout", (req,res) => {
     results.forEach((result) => {
       userID = result.id;
     });
+    // Insert order content into DB
     knex('orders').insert({user_id: userID}).returning('id').then((id) => {
       const orderID = id[0];
+      // Send message to customer with order details
       client.messages.create({
         body: `Your order has been received! Order ${orderID} will be ready in 15 minutes`,
         to: recipient,
         from: twilioPhone
       })
       .then((message) => console.log(message.sid));
+      // Fill smsItems with non-zero content to send to owner
       let smsItems = [];
       for (const item in items) {
         if (items[item].amount > 0) {
           smsItems.push(items[item]);
+          // For each item user orders, populate selection table with order id and item id
           knex.select('id').from('items').where({name:items[item].name}).then((results) => {
             results.forEach((result) => {
               knex('selections').insert({orders_id: orderID, items_id: result.id, quantity: items[item].amount}).then((res) => {
-                // Call function passing orderID, send text to 'restaurant'
               });
             });
           });
         }
       }
+      // Setup message to send to owner
       const smsItemsSend = smsItems.map((item) => {
         return ` ${item.name} x ${item.amount}`;
       });
@@ -112,7 +109,6 @@ app.post("/checkout", (req,res) => {
     });
   });
   res.status(200).send();
-  // res.redirect('/items');
 });
 
 app.listen(PORT, () => {
