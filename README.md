@@ -1,29 +1,37 @@
-# Node Skeleton
+# DIRTY DOZEN
+Doughnuts and Horchatas
 
-## Project Setup
+The Dirty Dozen is a web application which allows users to order doughnuts and horchatas. These orders will be communicated to the Dirty Dozen restaurant. Once the order has been accepted, the user will receive an SMS message about the pick up time. 
 
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
+## Final Product 
+
+[ "Screenshot of the Dirty Dozen Home Page" ] 
+
+<img src="http://i.imgur.com/ae4Kglc.jpg" alt="Home page" style="max-width:100%;"></a>
+
+[ "Screenshot of the Dirty Dozen Order Cart" ]
+
+ <img src="http://i.imgur.com/HWRBBdm.png" alt="Home page" style="max-width:100%;"></a>
+
+[ "Screenshot of the Dirty Dozen Admin Page" ] 
+
+<img src="http://i.imgur.com/ExECKnG.png" alt="Home page" style="max-width:100%;"></a>
+
+## Dependencies
+-Body-Parser
+-DotEnv
+-EJS
+-Express
+-Knex
+-Knex-Logger
+-Moment
+-Morgan
+-Node-Sass-Middleware
+-PG
+-Twilio
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
-  - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+- Install all dependencies (using `npm install` command).
+- Run the development web server using `npm start` command. 
 
-## Dependencies
-
-- Node 5.10.x or above
-- NPM 3.8.x or above
