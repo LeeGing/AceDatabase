@@ -44,7 +44,7 @@ $(document).ready(function () {
     itemList.append(`Total: $<span>${total}</span>`);
   });
 
-  // Empty button click handler
+  // Empty cart button click handler
   $('.empty-button').on('click', function () {
     itemList.empty();
     for (let item in items) {
@@ -71,13 +71,4 @@ $(document).ready(function () {
         alert("Thanks for placing your order");
       });
   });
-
-
-  // TODO figure out what this cart is
-  // Could just add items to an array that is displayed in the popup menu
-  // When user 'logs out', session cookie is cleared and cart array is emptied
-
-  // The popup cart will be a slowly building <section>..? with confirm button on bottom
-  // When confirm is pressed, POST request will be sent to server to insert order into DB
-  //
 });
