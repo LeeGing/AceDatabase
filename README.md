@@ -18,16 +18,27 @@ The Dirty Dozen is a web application which allows users to order doughnuts and h
 <img src="http://i.imgur.com/ExECKnG.png" alt="Home page" style="max-width:100%;"></a>
 
 ## Dependencies
+
 -Body-Parser
+
 -DotEnv
+
 -EJS
+
 -Express
+
 -Knex
+
 -Knex-Logger
+
 -Moment
+
 -Morgan
+
 -Node-Sass-Middleware
+
 -PG
+
 -Twilio
 
 ## Getting Started
